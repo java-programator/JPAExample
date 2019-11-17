@@ -1,6 +1,6 @@
 package pl.altkom;
 
-import pl.altkom.model.User;
+import pl.altkom.model.Customer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,7 +15,7 @@ public class ReadTableExample {
             emf = Persistence.createEntityManagerFactory("USER_PU");
             em = emf.createEntityManager();
             em.getTransaction().begin();
-            List<User> users = em.createQuery("select u from User u", User.class).getResultList();
+            List<Customer> users = em.createQuery("select c from Customer c", Customer.class).getResultList();
             em.getTransaction().commit();
             System.out.println(users);
         } finally {
