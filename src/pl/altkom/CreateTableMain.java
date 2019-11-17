@@ -17,6 +17,6 @@ public class CreateTableMain {
 
         dao.addCustomer(new Customer(1, "A", "B", "polska", 25, Sex.MALE));
 
-        
+
     }
 }
