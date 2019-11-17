@@ -15,9 +15,11 @@ public class ReadTableExample {
             emf = Persistence.createEntityManagerFactory("USER_PU");
             em = emf.createEntityManager();
             em.getTransaction().begin();
-            List<User> users = em.createQuery("select u from User u", User.class).getResultList();
+            List<User> users = em.createQuery("" +
+                    "select u from User u WHERE u.role.name = 'admin'", User.class)
+                    .getResultList();
             em.getTransaction().commit();
-            System.out.println(users);
+            users.forEach(System.out::println);
         } finally {
             if (em != null) em.close();
             if (emf != null) emf.close();
